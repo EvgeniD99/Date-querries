@@ -7,8 +7,8 @@ WHERE column in
 #
 #
 #
-#
-#want to know if hour is on time or not on time 
+##
+# want to know if hour is on time or not on time 
 
 SELECT format(column_name,"hh:nn") AS desired_name, DateDiff('d',first_date,last_date) AS desired_name, *,IIF ( format(column_date,"hh:nn") < "12:00" ,'On time','Not on time') AS desired_name
 FROM TABLE
