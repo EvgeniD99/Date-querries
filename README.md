@@ -22,5 +22,23 @@ Select *
   INNER
    JOIN table 2
      ON table1_column_id = table2_columnid and date > DATEADD(month,-12,getdate())
-#
+     
+#Using between clause in MS ACESS 
+
+select 
+CONVERT(DATE, DATEADD(mi, DATEDIFF(mi, table1.datecolumn AT TIME ZONE 'W. Europe Standard Time', table1.datecolumn), table1.datecolumn)) AS DATE,
+column1,
+column2,
+column3,
+column4,
+column5,
+column6,
+column7
+
+from table1
+
+
+where column1 LIKE '%RCPT%'
+AND  DATE BETWEEN '10/01/2021' AND '12/31/2021'
+
 
