@@ -1,0 +1,44 @@
+SELECT
+	CONVERT(DATE, DATEADD(mi, DATEDIFF(mi, table1.columntdate AT TIME ZONE 'W. Europe Standard Time', table1.columntdate), table1.columntdate)) as Report_Date,
+	DATEADD(mi, DATEDIFF(mi, table1.columntdate AT TIME ZONE 'W. Europe Standard Time', table1.columntdate), table1.columntdate) as Report_Time,
+	table2.column1,
+table1.column2,
+table2.column3,
+table2.column4,
+table2.column5,
+table2.column6,
+count ( distinct table3.column4) as qty,
+table5.column7,
+table2.column8,
+sum (table1.trnqty) as transty,
+table6.column9,
+table6.column10,
+table1.column11
+
+	FROM table1
+join table2 on REPLACE(dlytrn.fr_value,'column1 : ','') = table2.column1
+left join table3 ON table1.column8=table3.bomnum
+left join table4 ON table2.column4=table4.column4
+left join table5 ON table5.adr_id=table4.st_adr_id
+left join table6 ON table6.ship_id=table2.column3
+
+	WHERE
+	table1.column12='EVGENI'
+	AND table1.COLUMN13='EVGENI' AND table1.column2 NOT LIKE '%DIMOV%'
+AND table1.columndate>GETDATE()-7
+
+
+group by
+CONVERT(DATE, DATEADD(mi, DATEDIFF(mi, table1.columntdate AT TIME ZONE 'W. Europe Standard Time',table1.columntdate), table1.columntdate)),
+	DATEADD(mi, DATEDIFF(mi, table1.columntdate AT TIME ZONE 'W. Europe Standard Time', table1.columntdate), table1.columntdate),
+	table2.column1,
+table1.column2,
+table2.column3,
+table2.column4,
+table2.column5,
+table2.column6,
+table5.column7,
+table2.column8,
+table2.column9,
+table2.column10,
+table1.column11
